@@ -1,4 +1,14 @@
+
 def quick_sort(arr):
+    """
+    Sorts a list in ascending order using the quicksort algorithm.
+
+    Parameters:
+    arr (list): The list to be sorted.
+
+    Returns:
+    list: The sorted list.
+    """
     if len(arr) <= 1:
         return arr
     pivot = arr[len(arr) // 2]
