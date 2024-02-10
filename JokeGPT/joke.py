@@ -26,5 +26,17 @@ def search_joke(term):
     else:
         return "Couldn't retrieve a joke"
 
-print(search_joke("programmer"))
+
+def get_joke_by_language(category, language):
+    response = requests.get(f'https://v2.jokeapi.dev/joke/{category}?lang={language}')
+    if response.status_code == 200:
+        data = response.json()
+        if data['type'] == 'single':
+            return data['joke']
+        elif data['type'] == 'twopart':
+            return f"{data['setup']} - {data['delivery']}"
+    else:
+        return "Couldn't retrieve a joke"
+
+print(get_joke_by_language("Programming", "en"))
 
